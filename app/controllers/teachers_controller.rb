@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
 	end
 
 	def create
-		@teacher = Teacher.new(params[:first_name, :last_name])
+		@teacher = Teacher.new(params[:first_name, :last_name, :department_id])
 		@teacher.save
 	end
 
