@@ -3,7 +3,7 @@
 ------
 Set up controllers and models for availabilities, courses, teachers, and departments 
 
-teachers attributes:       first_name, last_name, department_id, bio
+teachers attributes:       first_name, last_name, department_id, bio, email, password
 
 courses attributes:        course_id, course_description	
 
