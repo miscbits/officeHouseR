@@ -10,3 +10,5 @@ courses attributes:        course_id, course_description
 departments attributes:    title
 
 availabilities attributes: meeting_time, meeting_location, teacher_id, accepted 
+
+relations:                 courses_teacher, availablities_teachers

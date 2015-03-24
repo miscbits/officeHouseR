@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150324203841) do
+ActiveRecord::Schema.define(:version => 20150324210900) do
 
   create_table "availabilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(:version => 20150324203841) do
   end
 
   create_table "teachers", :force => true do |t|
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "department_id"
     t.string   "email"
     t.string   "bio"
-    t.string   "password"
+    t.string   "password_digest"
   end
 
 end
