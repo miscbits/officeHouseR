@@ -11,14 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150324210900) do
+ActiveRecord::Schema.define(:version => 20150324235318) do
 
   create_table "availabilities", :force => true do |t|
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.datetime "meeting_time"
+    t.string   "meeting_location"
+    t.integer  "teacher_id"
+    t.boolean  "accepted"
+  end
+
+  create_table "availability_teachers", :force => true do |t|
+    t.integer  "availability_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "classes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "classes", :force => true do |t|
+  create_table "course_teachers", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "teacher_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -28,6 +46,12 @@ ActiveRecord::Schema.define(:version => 20150324210900) do
     t.datetime "updated_at",  :null => false
     t.string   "course_id"
     t.string   "description"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
   create_table "teachers", :force => true do |t|
