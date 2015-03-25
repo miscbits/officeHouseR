@@ -9,7 +9,7 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params)
+    @teacher = Teacher.new(user_params) 
     if @teacher.save
       # Handle a successful save.
     else
@@ -17,12 +17,15 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+    @teacher = Teacher.find(params[:id])
+  end
+
   def destroy
   end
 
-  private
-
-    def teacher_params
+  private 
+    def user_params
       params.require(:teacher).permit(:first_name, :last_name, :email, :password,
                                    :password_confirmation)
     end
