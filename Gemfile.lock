@@ -32,6 +32,7 @@ GEM
     autoprefixer-rails (5.1.7)
       execjs
       json
+    bcrypt (3.1.7)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.0.4)
@@ -74,6 +75,8 @@ GEM
       activesupport (= 3.2.21)
       bundler (~> 1.0)
       railties (= 3.2.21)
+    rails-ajax (1.0.0.20140320)
+      rails (>= 3.2.1)
     railties (3.2.21)
       actionpack (= 3.2.21)
       activesupport (= 3.2.21)
@@ -110,11 +113,13 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bcrypt (= 3.1.7)
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 3.2.1)
   font-awesome-rails
   jquery-rails
   rails (= 3.2.21)
+  rails-ajax (~> 1.0.0.20140320)
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
