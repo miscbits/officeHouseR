@@ -6,7 +6,6 @@ class Teacher < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :department_id, presence: true
   validates :email, presence: true, format: { with: //\A[\w+\-.]+@wcupa\.edu/ }, uniqueness: { case_sensitive: false }
 
   has_secure_password
