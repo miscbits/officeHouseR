@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(user_params) 
     if @teacher.save
-      # Handle a successful save.
+      redirect_to @teacher
     else
       render 'new'
     end
