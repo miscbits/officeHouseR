@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20150326063801) do
 
   create_table "availabilities", force: true do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "meeting_time"
     t.string   "meeting_location"
     t.integer  "teacher_id"
@@ -25,33 +25,33 @@ ActiveRecord::Schema.define(version: 20150326063801) do
   create_table "availability_teachers", force: true do |t|
     t.integer  "availability_id"
     t.integer  "teacher_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "course_teachers", force: true do |t|
     t.integer  "course_id"
     t.integer  "teacher_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "courses", force: true do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "course_id"
     t.string   "description"
   end
 
   create_table "departments", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "title"
   end
 
   create_table "teachers", force: true do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "department_id"
