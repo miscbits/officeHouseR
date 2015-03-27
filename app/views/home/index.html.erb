@@ -5,7 +5,12 @@
 </header>
 <section class="section" id="home-section">
 	<h1>This is office Hours</h1>
+	<h3>
+	<% if logged_in? %>
+  		<%= link_to("Make an availability", current_teacher ) %>
+	<% else %>
+  		<%= link_to("Sign In", login_path) %>
+	<% end %>
+	</h3>
 </section>
-<section class="section">
-	<h1>We do things!</h1>
 </section>

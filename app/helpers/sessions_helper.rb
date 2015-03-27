@@ -16,4 +16,13 @@ module SessionsHelper
 		@current_teacher = nil
 	end
 
+	def current_teacher
+	  @current_teacher ||= User.find_by(id: session[:user_id])
+	end
+
+	def logged_in?
+    	!current_teacher.nil?
+  	end
+
+
 end
