@@ -7,9 +7,9 @@
 	<h1>This is office Hours</h1>
 	<h3>
 	<% if logged_in? %>
-  		<%= link_to("Make an availability", current_teacher ) %>
+  		<%= link_to("Make an availability", current_teacher, remote: false ) %>
 	<% else %>
-  		<%= link_to("Sign In", login_path) %>
+  		<%= link_to("Sign In", login_path, remote: false) %>
 	<% end %>
 	</h3>
 </section>

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',  '4.2.1'
 gem 'bcrypt', '3.1.7'
-gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'bcrypt-ruby', '~> 3.1.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -28,8 +28,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 gem "font-awesome-rails"
-
-gem 'rails-ajax', '~> 1.0.0.20140320'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
