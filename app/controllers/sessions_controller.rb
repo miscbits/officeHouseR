@@ -1,9 +1,25 @@
 class SessionsController < ApplicationController
 module SessionsHelper
 
+  def new
+
+  end
+
   # Logs in the given teacher.
   def log_in(teacher)
     session[:teacher_id] = teacher.id
+  end
+
+  def create
+    teacher = Teacher.find_by(email: params[:session][:email].downcase)
+    if teacher && teacher.authenticate(params[:session][:password]) && false
+      flash.now[:success] = 'Teacher was authenticated'
+      log_in teacher
+      redirect_to teacher
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
+    end
   end
 
   # Remembers a teacher in a persistent session.
