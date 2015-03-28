@@ -12,16 +12,31 @@ module SessionsHelper
 
 	def log_out
 		forget(current_teacher)
-		session.delete(:user_id)
+		session.delete(:teacher_id)
 		@current_teacher = nil
 	end
 
-	def current_teacher
-	  @current_teacher ||= User.find_by(id: session[:user_id])
-	end
+  def current_teacher
+    if (teacher_id = session[:teacher_id])
+      @current_teacher ||= Teacher.find_by(id: teacher_id)
+    elsif (teacher_id = cookies.signed[:teacher_id])
+      teacher = Teacher.find_by(id: teacher_id)
+      if teacher && Teacher.authenticated?(cookies[:remember_token])
+        log_in teacher
+        @current_teacher = teacher
+      end
+    end
+  end
+
 
 	def logged_in?
     	!current_teacher.nil?
+  	end
+
+	def remember(teacher)
+    	teacher.remember
+    	cookies.permanent.signed[:teacher_id] = teacher.id
+    	cookies.permanent[:remember_token] = teacher.remember_token
   	end
 
 

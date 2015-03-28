@@ -11,16 +11,18 @@ class Teacher < ActiveRecord::Base
   validates :password_digest, length: { minimum: 6 }
 
   def Teacher.digest(string)
-  	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Password.create(string, cost: cost)  	
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
   end
 
   def Teacher.new_token
-	SecureRandom.urlsafe_base64  	
+	  SecureRandom.urlsafe_base64  	
   end
 
   def remember
-	self.remember_token = Teacher.new_token
-	update_attribute(:remember_digest, Teacher.digest(remember_token))  	
+  	self.remember_token = Teacher.new_token
+  	update_attribute(:remember_digest, Teacher.digest(remember_token))  	
   end
 
   def authenticated?(remember_token)
