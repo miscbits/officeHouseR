@@ -1,9 +1,9 @@
 class AvailabilitiesController < ApplicationController
 
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_teacher, only: [:create, :destroy]
 
 	def new
-  	@availability = Availability.new
+  	@availability = current_teacher.availability.new teacher: @teacher
   end
 
   def create
@@ -21,7 +21,7 @@ class AvailabilitiesController < ApplicationController
 
   private 
     def availability_params
-      params.require(:availability).permit(:meeting_time, :meeting_location)
+      params.require(:availability).permit(:meeting_time, :meeting_location, :meeting_day)
     end
 
 end

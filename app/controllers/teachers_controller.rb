@@ -22,6 +22,11 @@ class TeachersController < ApplicationController
   	@teacher = Teacher.new
   end
 
+  def avail
+    @teacher = current_teacher
+    @availability = Availability.new
+  end
+
   def create
     @teacher = Teacher.new(user_params) 
     if @teacher.save
@@ -50,14 +55,6 @@ class TeachersController < ApplicationController
     Teacher.find(params[:id]).destroy
     flash[:success] = "Teacher deleted"
     redirect_to teachers_url
-  end
-
-  def logged_in_teacher
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
   end
 
   def correct_teacher

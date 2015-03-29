@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329085609) do
+ActiveRecord::Schema.define(version: 20150329162716) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150329085609) do
     t.string   "meeting_location"
     t.integer  "teacher_id"
     t.boolean  "accepted"
+    t.datetime "meeting_day"
   end
 
   create_table "availability_teachers", force: :cascade do |t|
