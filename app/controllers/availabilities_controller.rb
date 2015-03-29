@@ -17,5 +17,4 @@ class AvailabilitiesController < ApplicationController
       params.require(:availability).permit(:meeting_time, :meeting_location)
     end
 
-
 end

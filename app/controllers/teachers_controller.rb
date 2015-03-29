@@ -5,9 +5,9 @@ class TeachersController < ApplicationController
  
   def show
     current_teacher
-    if params[:id] != nil
+    if params[:id].nil? && Teacher.find(params[:id]).nil?
       @teacher = Teacher.find(params[:id])
-    elsif @current_teacher != nil
+    elsif logged_in?
       @teacher = @current_teacher
     else
       @teacher = Teacher.new
@@ -76,7 +76,7 @@ class TeachersController < ApplicationController
   private 
     def user_params
       params.require(:teacher).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation, :bio)
+                                   :password_confirmation, :bio, :regular_hours)
     end
 
    

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329075150) do
+ActiveRecord::Schema.define(version: 20150329085609) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150329075150) do
     t.string   "remember_digest"
     t.string   "remember_token"
     t.string   "encrypted_password"
+    t.string   "regular_hours"
+    t.boolean  "admin",              default: false
   end
 
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
