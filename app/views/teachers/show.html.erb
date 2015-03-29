@@ -1,1 +1,4 @@
-<%= @teacher.first_name %>, <%= @teacher.email %>
+<div><%= @teacher.first_name %>, <%= @teacher.email %> </div>
+<div><%= link_to "Log out", logout_path, method: :delete %></div>
+<div><%= link_to "Settings", '#' %></div>
+
