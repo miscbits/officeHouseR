@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if teacher && teacher.authenticate(params[:session][:password])
       log_in teacher
       params[:session][:remember_me] == '1' ? remember(teacher) : forget(teacher)
-      redirect_to teacher
+      redirect_back_or teacher
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

@@ -8,7 +8,7 @@ class Teacher < ActiveRecord::Base
   validates :email, format: { with: /\A[\w+\-.]+@wcupa\.edu/ }, uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password_digest, length: { minimum: 6 }
+  validates :password_digest, length: { minimum: 6 }, allow_blank: true
 
   def Teacher.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

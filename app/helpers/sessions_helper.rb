@@ -28,6 +28,18 @@ module SessionsHelper
     end
   end
 
+  def current_teacher?(teacher)
+    teacher == current_teacher
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
 
 	def logged_in?
     	!current_teacher.nil?
@@ -37,7 +49,7 @@ module SessionsHelper
     	teacher.remember
     	cookies.permanent.signed[:teacher_id] = teacher.id
     	cookies.permanent[:remember_token] = teacher.remember_token
-  	end
+  end
 
 
 end

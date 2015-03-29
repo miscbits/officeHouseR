@@ -1,5 +1,8 @@
 class TeachersController < ApplicationController
 
+  before_action :logged_in_teacher, only: [:edit, :update]
+  before_action :correct_teacher,   only: [:edit, :update]
+ 
   def show
     current_teacher
     if params[:id] != nil
@@ -30,7 +33,30 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  def update
+    @teacher = Teacher.find(params[:id])
+    if @teacher.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end  
+  end
+
   def destroy
+  end
+
+  def logged_in_teacher
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  def correct_teacher
+    @teacher = Teacher.find(params[:id])
+    redirect_to(root_url) unless current_teacher?(@teacher)  
   end
 
   def current_teacher
