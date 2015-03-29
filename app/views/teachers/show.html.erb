@@ -1,4 +1,5 @@
 <div><%= @teacher.first_name %>, <%= @teacher.email %> </div>
-<div><%= link_to "Log out", logout_path, method: :delete %></div>
-<div><%= link_to "Settings", '#' %></div>
-
+<% if logged_in? && current_teacher.id = Teacher.find(params[:id]) %>
+	<div><%= link_to "Log out", logout_path, method: :delete %></div>
+	<div><%= link_to "Settings", '#' %></div>
+<% end %>
