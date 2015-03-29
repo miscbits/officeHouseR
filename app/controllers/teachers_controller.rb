@@ -4,7 +4,6 @@ class TeachersController < ApplicationController
   before_action :correct_teacher,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
-
   def show
     current_teacher
     if params[:id].nil? && Teacher.find(params[:id]).nil?
