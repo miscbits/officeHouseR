@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328224653) do
+ActiveRecord::Schema.define(version: 20150329015014) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "meeting_time"
-    t.string   "meeting_location", limit: 255
+    t.string   "meeting_location"
     t.integer  "teacher_id"
     t.boolean  "accepted"
   end
@@ -39,26 +39,28 @@ ActiveRecord::Schema.define(version: 20150328224653) do
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "course_id",   limit: 255
-    t.string   "description", limit: 255
+    t.string   "course_id"
+    t.string   "description"
   end
 
   create_table "departments", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",      limit: 255
+    t.string   "title"
   end
 
   create_table "teachers", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
     t.integer  "department_id"
-    t.string   "email",           limit: 255
-    t.string   "bio",             limit: 255
-    t.string   "password_digest", limit: 255
+    t.string   "email"
+    t.string   "bio"
+    t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "encrypted_password"
+    t.string   "remember_token"
   end
 
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
@@ -66,7 +68,7 @@ ActiveRecord::Schema.define(version: 20150328224653) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "email",              limit: 255, null: false
+    t.string   "email",                          null: false
     t.string   "encrypted_password", limit: 128, null: false
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
