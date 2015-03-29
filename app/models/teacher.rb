@@ -1,7 +1,7 @@
 class Teacher < ActiveRecord::Base
   include Clearance::User
-
-  before_save { self.email = email.downcase}	
+  has_many :availabilities, dependent: :destroy
+  before_save { self.email = email.downcase }	
 
   validates :first_name, presence: true
   validates :last_name, presence: true

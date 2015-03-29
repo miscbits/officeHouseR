@@ -1,14 +1,18 @@
 class TeachersController < ApplicationController
 
-  before_action :logged_in_teacher, only: [:edit, :update]
+  before_action :logged_in_teacher, only: [:edit, :update, :destroy]
   before_action :correct_teacher,   only: [:edit, :update]
- 
+  before_action :admin_user,     only: :destroy
+
+
   def show
     current_teacher
     if params[:id].nil? && Teacher.find(params[:id]).nil?
       @teacher = Teacher.find(params[:id])
+      @availabilities = @teacher.availabilities
     elsif logged_in?
       @teacher = @current_teacher
+      @availabilities = @teacher.availabilities
     else
       @teacher = Teacher.new
       redirect_to '/login'
@@ -44,6 +48,9 @@ class TeachersController < ApplicationController
   end
 
   def destroy
+    Teacher.find(params[:id]).destroy
+    flash[:success] = "Teacher deleted"
+    redirect_to teachers_url
   end
 
   def logged_in_teacher
@@ -71,6 +78,9 @@ class TeachersController < ApplicationController
     end
   end
 
+  def admin_user
+    redirect_to(root_url) unless current_teacher.admin?
+  end
 
 
   private 

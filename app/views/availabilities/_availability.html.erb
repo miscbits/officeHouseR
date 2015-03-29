@@ -1,0 +1,8 @@
+<li id="availability-<%= availability.id %>">
+  <span class="teacher"><%= link_to availability.teacher.first_name+" "+availability.teacher.last_name, availability.teacher %></span>
+  <span class="content"><%= availability.meeting_time %></span>
+  <span class="content"><%= availability.meeting_location %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(availability.created_at) %> ago.
+  </span>
+</li>

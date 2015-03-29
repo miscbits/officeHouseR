@@ -1,15 +1,22 @@
 class AvailabilitiesController < ApplicationController
+
+  before_action :logged_in_user, only: [:create, :destroy]
+
 	def new
   	@availability = Availabilities.new
   end
 
   def create
-    @availability = Availabilities.new(availability_params) 
+    @availability = current_teacher.availabilities.build(availability_params) 
     if @availability.save
+      flash[:success] = "Micropost created!"
       redirect_to teacher_path
     else
-      render 'new'
+      render 'static_pages/home'
     end
+  end
+
+  def destroy
   end
 
   private 

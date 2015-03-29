@@ -1,5 +1,12 @@
 <% Teacher.all.each do |t| %> 
+	<% if !t.admin? %>
+	<div>
+		<%= t.first_name %>, <%= t.email %>
+	  <% if current_teacher.admin? && !current_teacher?(t) %>
+	    | <%= link_to "delete", t, method: :delete,
+	                                  data: { confirm: "You sure?" } %>
+	  <% end %>
+	</div>
 
-<div><%= t.first_name %>, <%= t.email %></div>
-
+	<% end %>
 <% end %>
