@@ -3,7 +3,7 @@ class AvailabilitiesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
 	def new
-  	@availability = Availabilities.new
+  	@availability = Availability.new
   end
 
   def create

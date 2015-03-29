@@ -5,12 +5,11 @@
 	<div><%= link_to "Log out", logout_path, method: :delete %></div>
 	<div><%= link_to "Settings", edit_teacher_path(current_teacher.id||=1) %></div>
 	  <div class="col-md-8">
-    <% if @user.availabilities.any? %>
-      <h3>Availabilities (<%= @user.availabilities.count %>)</h3>
+    <% if @teacher.availabilities.any? %>
+      <h3>Availabilities (<%= @teacher.availabilities.count %>)</h3>
       <ol class="availabilities">
         <%= render @availabilities %>
       </ol>
-      <%= will_paginate @availabilities %>
     <% end %>
   </div>
 
