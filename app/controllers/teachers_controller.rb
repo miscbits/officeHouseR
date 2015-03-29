@@ -37,7 +37,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
     if @teacher.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to @teacher
     else
       render 'edit'
     end  
@@ -76,7 +76,7 @@ class TeachersController < ApplicationController
   private 
     def user_params
       params.require(:teacher).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :bio)
     end
 
    
