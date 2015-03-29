@@ -1,15 +1,15 @@
 <%= form_for(@availability, html: { multipart: true }) do |f| %>
   <div class="field">
-    <%= f.label :meeeting_day %>
-    <%= f.date_field :meeeting_day, placeholder: "Date of your meeting" %>
+    <%= f.label :meeting_day %>
+    <%= f.date_field :meeting_day, placeholder: "Date of your meeting" %>
   </div>
   <div class="field">
-    <%= f.label :meeeting_time %>
-    <%= f.datetime_field :meeeting_time, placeholder: "Time of your meeting" %>
+    <%= f.label :meeting_time %>
+    <%= f.datetime_field :meeting_time, placeholder: "Time of your meeting" %>
   </div>  
   <div class="field">
-    <%= f.label :meeeting_location %>
-    <%= f.text_field :meeeting_location, placeholder: "Location of your meeting" %>
+    <%= f.label :meeting_location %>
+    <%= f.text_field :meeting_location, placeholder: "Location of your meeting" %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
