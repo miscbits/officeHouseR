@@ -38,7 +38,7 @@ class TeachersController < ApplicationController
   end
 
   def edit
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.find current_teacher.id
   end
 
   def update

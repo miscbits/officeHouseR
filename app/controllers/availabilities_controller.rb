@@ -10,7 +10,7 @@ class AvailabilitiesController < ApplicationController
     @availability = current_teacher.availabilities.build(availability_params) 
     if @availability.save
       flash[:success] = "Micropost created!"
-      redirect_to teacher_path
+      redirect_to current_teacher
     else
       render 'static_pages/home'
     end

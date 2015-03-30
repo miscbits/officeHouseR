@@ -2,7 +2,9 @@
   <span class="teacher"><%= link_to availability.teacher.first_name+" "+availability.teacher.last_name, availability.teacher %></span>
   <span class="content"><%= availability.meeting_time %></span>
   <span class="content"><%= availability.meeting_location %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(availability.created_at) %> ago.
-  </span>
+  <% if current_teacher?(availability.teacher) %>
+  	<%= link_to "delete", availability, method: :delete,
+                               data: { confirm: "You sure?" } %>
+	<% end %>
+
 </li>
