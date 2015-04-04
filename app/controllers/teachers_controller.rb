@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
 
   def show
     current_teacher
-    if params[:id].nil? && Teacher.find(params[:id]).nil?
+    if !params[:id].nil? && !Teacher.find(params[:id]).nil?
       @teacher = Teacher.find(params[:id])
       @availabilities = @teacher.availabilities
     elsif logged_in?

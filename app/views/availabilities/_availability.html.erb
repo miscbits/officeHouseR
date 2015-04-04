@@ -2,7 +2,7 @@
   <span class="teacher"><%= link_to availability.teacher.first_name+" "+availability.teacher.last_name, availability.teacher %></span>
   <span class="content"><%= availability.meeting_time %></span>
   <span class="content"><%= availability.meeting_location %></span>
-  <% if current_teacher?(availability.teacher) %>
+  <% if current_teacher?(availability.teacher) || current_teacher.admin? %>
   	<%= link_to "delete", availability, method: :delete,
                                data: { confirm: "You sure?" } %>
 	<% end %>
