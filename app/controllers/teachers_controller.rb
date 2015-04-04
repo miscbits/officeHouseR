@@ -82,7 +82,7 @@ class TeachersController < ApplicationController
   private 
     def user_params
       params.require(:teacher).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation, :bio, :regular_hours)
+                                   :password_confirmation, :bio, :regular_hours, :office)
     end
 
    
