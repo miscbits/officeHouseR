@@ -9,9 +9,11 @@ class TeachersController < ApplicationController
     if !params[:id].nil? && !Teacher.find(params[:id]).nil?
       @teacher = Teacher.find(params[:id])
       @availabilities = @teacher.availabilities
+      @courses = @teacher.courses
     elsif logged_in?
-      @teacher = @current_teacher
+      @teacher = current_teacher
       @availabilities = @teacher.availabilities
+      @courses = @teacher.courses
     else
       @teacher = Teacher.new
       redirect_to '/login'
@@ -25,6 +27,11 @@ class TeachersController < ApplicationController
   def avail
     @teacher = current_teacher
     @availability = Availability.new
+  end
+
+  def course
+    @teacher = current_teacher
+    @course = Course.new
   end
 
   def create

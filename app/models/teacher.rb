@@ -1,7 +1,7 @@
 class Teacher < ActiveRecord::Base
   include Clearance::User
   has_many :availabilities, dependent: :destroy
-  has_and_belongs_to_many :courses
+  has_many :courses
   belongs_to :department
 
   before_save { self.email = email.downcase }	

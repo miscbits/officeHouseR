@@ -5,6 +5,7 @@
 	<div><%= link_to "Log out", logout_path, method: :delete %></div>
 	<div><%= link_to "Settings", edit_teacher_path(current_teacher.id||=1) %></div>
   <div><%= link_to "Create an Availability", "/availability/new" %></div>
+  <div><%= link_to "Add Classes", "/course/new" %></div>
 
 <% end %>
 <div class="col-md-8">
@@ -14,4 +15,11 @@
       <%= render @availabilities %>
     </ol>
   <% end %>
+  <% if @teacher.courses.any? %>
+    <h3>Courses taught (<%= @teacher.courses.count %>)</h3>
+    <ol class="courses">
+      <%= render @courses %>
+    </ol>
+  <% end %>
+
 </div>

@@ -1,0 +1,7 @@
+<li id="course-<%= course.id %>">
+  <span class="content"><%= course.course_id %></span> 
+  <% if !course.description.nil? && course.description!="" %>
+  |
+  <span class="content"><%= course.description %></span>
+  <% end %>
+</li>

@@ -13,7 +13,8 @@ class AvailabilitiesController < ApplicationController
       flash[:success] = "Availability created!"
       redirect_to current_teacher
     else
-      render 'static_pages/home'
+      flash[:danger] = "Failed to create availability"
+      redirect_to current_teacher
     end
   end
 

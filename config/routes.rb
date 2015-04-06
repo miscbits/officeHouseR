@@ -8,6 +8,8 @@ OfficeHours::Application.routes.draw do
   post   'login'            => 'sessions#create'
   delete 'logout'           => 'sessions#destroy'
   get    'availability/new' => 'teachers#avail'
+  get    'course/new'       => 'teachers#course'
   resources :teachers
-  resources :availabilities,          only: [:create, :destroy]
+  resources :availabilities,    only: [:create, :destroy]
+  resources :courses,           only: [:create, :destroy]
 end
