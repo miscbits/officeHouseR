@@ -1,6 +1,6 @@
 <header id="header" class="">
 	<div class="splash">
-		<h1>This is office Hours</h1>
+		<h1>This is officeHours</h1>
 	  	<%= form_tag(teachers_path, :method => "get", class: "navbar-form", id: "search-form") do %>
 	    	<div class="input-append">
 		      	<%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search for your teacher" %>
@@ -14,9 +14,16 @@
 	</div>
 </header>
 <section class="section" id="home-section">
-	<h3>
-	</h3>
-</section>
+	<div class="help-container">
+		<h3>What is officeHours?</h3>
+		<p>officeHours is a way of streamlining the process of scheduling apointments with your teachers! To get started, simply search your professor by name and see if they have any availabilities. If they do, then you can schedule an apointment with them with the click of a button!</p>
+		<h3>But my teacher doesn't have any availabilities!</h3>
+		<p>No need to worry! If you are having trouble in a class and need help, you can also search for other teachers who teach the same course. Simply put in the course you are looking for and see if any other teacher is available when you need them. You can also simply check your teacher's normal hours through this website</p>
+		<h3>Why can't I just go to my teacher's regular office hours?</h3>
+		<p>You totally can. officeHours was designed for students who have class during their teacher's normal office, or who are interested in getting help from teachers other than their own, perhaps one they had before and learned well from.</p>
+		<h3>I want to meet with a teacher but not for a class</h3>
+		<p>Well that's totally cool too. When you schedule an appointment you can detail why you would like to have this meeting, and let the teacher know ahead of time why you want some of their time. Perhaps you are changing majors, or maybe you are scheduling for classes next semester and need help, or maybe you just want to talk to them about some interesting research you found. Whatever you're need, officeHours is designed to help get you an appointment with your teachers!</p>
+	</div>
 </section>
 
 <!--

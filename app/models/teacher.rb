@@ -38,6 +38,6 @@ class Teacher < ActiveRecord::Base
   end
 
   def self.search(query)
-    where("first_name + last_name like ?", "%#{query}%")
+    where("last_name like ?", "%#{query}%")
   end
 end

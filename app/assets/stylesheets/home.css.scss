@@ -75,15 +75,31 @@ body {
 
 
 .section {
-	height: 100vh;
+	min-height: 100vh;
 	width:100%;
-	h1 {
-		text-align: center;
-		padding-top: 40vh; 
-	}
-	h3 {
-		text-align: center;
-	}
+	background-image: url("/images/teacher.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: flex;
+    div.help-container {
+    	background-color: rgba(238,238,238,.5); 
+       	width: 60%;
+       	margin: 10% auto;
+       	min-height: 80%;
+       	h3, p {
+       		margin: 10px 10px;
+       		font-weight: bold;
+       		text-align: center;
+       	}
+       	h3 {
+       		color: #050505;
+       	}
+       	p {
+       		font-size: 1.2em;
+       		color: #000;
+       	}
+    }
 }
 
 form.navbar-form {
