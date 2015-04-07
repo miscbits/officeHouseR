@@ -37,5 +37,7 @@ class Teacher < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-
+  def self.search(query)
+    where("first_name + last_name like ?", "%#{query}%")
+  end
 end

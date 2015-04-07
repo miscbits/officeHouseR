@@ -1,16 +1,28 @@
 <header id="header" class="">
 	<div class="splash">
-		<p><i class="fa fa-arrow-down nextSection"></i></p>
+		<h1>This is office Hours</h1>
+	  	<%= form_tag(teachers_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+	    	<div class="input-append">
+		      	<%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search for your teacher" %>
+		      	<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+	    	</div>
+	  	<% end %>
+	  	<div class="help-tab">
+			<h2>Need Help?</h3>
+			<i class="fa fa-arrow-down nextSection"></i>
+		</div>
 	</div>
 </header>
 <section class="section" id="home-section">
-	<h1>This is office Hours</h1>
 	<h3>
+	</h3>
+</section>
+</section>
+
+<!--
 	<% if logged_in? %>
   		<%= link_to("Make an availability", current_teacher, remote: false ) %>
 	<% else %>
   		<%= link_to("Sign In", login_path, remote: false) %>
 	<% end %>
-	</h3>
-</section>
-</section>
+-->

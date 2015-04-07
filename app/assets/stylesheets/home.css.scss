@@ -11,15 +11,45 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	line-height: 100vh;
-	background-image: url("https://placekitten.com/800/400");
+	background-image: url("/images/office.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 
-	p {
+    h1 {
+    	line-height: 30vh;
+   		margin-top: 0;
+		text-shadow:
+		    -1px -1px 0 #FFF,  
+		    1px -1px 0 #FFF,
+		    -1px 1px 0 #FFF,
+		    1px 1px 0 #FFF;
+    }
+    .input-append {
+    	line-height: normal;
+    	margin: 0 auto;
+    	width: 768px;
+    	.btn {
+    		float: left;
+ 			height: 40px;
+  			width: 44px;
+		    border-radius: 0;
+    	}
+    }
+	div.help-tab {
 		margin: 0;
 		text-align: center;
-		line-height: 150vh;
+		line-height: normal;
+		display: block;
+		h2 {
+			text-align: center;
+			text-shadow:
+			    -1px -1px 0 #FFF,  
+			    1px -1px 0 #FFF,
+			    -1px 1px 0 #FFF,
+			    1px 1px 0 #FFF;
+			margin-top: 50px;
+		}
 		i {
 		    height: 60px;
 		    width: 60px;
@@ -54,4 +84,21 @@ body {
 	h3 {
 		text-align: center;
 	}
+}
+
+form.navbar-form {
+	height: 40px;
+}
+
+div input.span2 {
+	height: 40px !important;
+	width: 724px;
+	margin-bottom: 15px;
+  	box-sizing: border-box;
+  	float: left;
+  	padding-left: 10px;
+}
+
+.navbar-form { 
+	margin: 0;
 }

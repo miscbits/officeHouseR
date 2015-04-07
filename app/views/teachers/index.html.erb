@@ -1,0 +1,11 @@
+<% @teacher.each do |teacher| %>
+  <div class="Teacher">
+    <h1 class="teacher-name"><%= link_to teacher.first_name +  teacher.last_name, teacher %></h1>
+    <% teacher.availabilities.each do |a| %>
+    	<div class="avail">
+    		<p class="meeting-time"><%= avail.meeting_time %></p> 
+    		<p class="office"><%= teacher.office %></p>
+    	</div>
+    <% end %>
+  </div>
+<% end %>
