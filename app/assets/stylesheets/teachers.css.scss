@@ -43,3 +43,56 @@ input {
   }
 }
 
+
+.teacher-wrapper {
+  background-color: rgba(102, 255, 104, 0.52);
+  width: 768px;
+  margin: 30px auto;
+  .info-box{ 
+    padding: 0 20px 20px 20px;
+    background-color: #F0F0F0;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 2px 2px 3px 1px;
+    border-style: solid;
+    border-width: 1px; 
+    border-color: #eee;
+    .ethos {
+      div.head {
+        height: 100%; 
+        right: 0;
+        h2 { 
+          display: inline-block;
+          float: left;
+        }
+        .normal-hours {
+          display: inline-block;
+          float: right;
+          margin-top: 20px;
+          margin-bottom: 10px;      
+        }
+      }
+    }
+    .bio {
+      width: 100%;
+      display: flex;
+    }
+  }
+  .avail-box {
+    min-height: 20px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    h3 {
+      margin-left: 10px;
+    } 
+  }
+}
+
+#home-wrapper, body {
+  background: url(/images/office.jpg) no-repeat center center fixed;
+  height: 100vh;
+}
+
+body {
+  height: 200vh;
+}
+

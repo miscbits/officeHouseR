@@ -118,3 +118,43 @@ div input.span2 {
 .navbar-form { 
 	margin: 0;
 }
+
+#login-pane {
+	position: fixed;
+	top: 0;
+	left: 5%;
+	height: 30px;
+	line-height: 30px;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	background-color: #eee;
+	border-radius: 0 0 4px 4px;
+	span {
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	#header div.splash .input-append {
+    	width: 100%;
+    	float: left;
+    	margin: 0 auto;
+		.span2 {
+	    	width: 100%;
+	    	margin-bottom: 0;
+	    }
+    	.btn {
+ 			height: 40px;
+  			width: 100%;
+    	}
+    }
+    form.navbar-form {
+    	margin-bottom: 75px;
+    }
+}
+
+
+
+
+

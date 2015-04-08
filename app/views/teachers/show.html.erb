@@ -1,25 +1,28 @@
-<div><%= @teacher.first_name %>, <%= @teacher.email %> </div>
-<div><%= @teacher.bio %></div>
-<div><%= @teacher.regular_hours %> in <%= @teacher.office %></div> 
-<% if logged_in? && (current_teacher.id || current_teacher.admin?) %>
-	<div><%= link_to "Log out", logout_path, method: :delete %></div>
-	<div><%= link_to "Settings", edit_teacher_path(current_teacher.id||=1) %></div>
-  <div><%= link_to "Create an Availability", "/availability/new" %></div>
-  <div><%= link_to "Add Classes", "/course/new" %></div>
-
-<% end %>
-<div class="col-md-8">
-  <% if @teacher.availabilities.any? %>
-    <h3>Availabilities (<%= @teacher.availabilities.count %>)</h3>
-    <ol class="availabilities">
-      <%= render @availabilities %>
-    </ol>
-  <% end %>
-  <% if @teacher.courses.any? %>
-    <h3>Courses taught (<%= @teacher.courses.count %>)</h3>
-    <ol class="courses">
-      <%= render @courses %>
-    </ol>
-  <% end %>
-
+<div class="teacher-wrapper"> 
+    <div class="info-box"> 
+        <div class="ethos">
+            <div class="head"> 
+                <h2><%= @teacher.first_name + ' ' + @teacher.last_name %> </h2>
+                <span class="normal-hours"><%= @teacher.regular_hours %> in <%= @teacher.office %></span>
+            </div>
+        </div> 
+        <div class="bio"><%= @teacher.bio %></div>
+        <% if @teacher.courses.any? %>
+            <%= render @courses %>
+        <% end %>
+        <% if logged_in? && (current_teacher.id || current_teacher.admin?) %>
+            <div><%= link_to "Log out", logout_path, method: :delete %></div>
+            <div><%= link_to "Settings", edit_teacher_path(current_teacher.id||=1) %></div>
+            <div><%= link_to "Create an Availability", "/availability/new" %></div>
+            <div><%= link_to "Add Classes", "/course/new" %></div>
+        <% end %>
+    </div>
+    <div class="avail-box">
+        <% if @teacher.availabilities.any? %>
+            <h3>Availabilities</h3>
+            <div class="availabilities">
+                <%= render @availabilities %>
+            </div>
+        <% end %>
+    </div>
 </div>

@@ -1,11 +1,14 @@
-<li id="availability-<%= availability.id %>">
-  <span class="teacher"><%= link_to availability.teacher.first_name+" "+availability.teacher.last_name, availability.teacher %></span>
-  <span class="content"><%= availability.meeting_time %></span>
-  <span class="content"><%= availability.meeting_location %></span>
-  <% if logged_in? %>
-	  <% if current_teacher?(availability.teacher) || current_teacher.admin? %>
-	  	<%= link_to "delete", availability, method: :delete,
-    	                           data: { confirm: "You sure?" } %>
+<div id="availability-<%= availability.id %>" class="single-avail">
+	<div class="col-md-10"> 
+		<h4 class="content"><%= availability.meeting_time.strftime("%B %d, %Y, %H:%M")%> in <%= availability.teacher.office %></h4>
+	</div>
+	<div class="col-md-2">
+		<a href="#" class="btn btn-primary">Book Now!</a>
+	</div>
+	<% if logged_in? %>
+		<% if current_teacher?(availability.teacher) || current_teacher.admin? %>
+			<%= link_to "delete", availability, method: :delete,
+								   			data: { confirm: "You sure?" } %>
 		<% end %>
 	<% end %>
-</li>
+</div>

@@ -26,10 +26,12 @@
 	</div>
 </section>
 
-<!--
-	<% if logged_in? %>
-  		<%= link_to("Make an availability", current_teacher, remote: false ) %>
-	<% else %>
-  		<%= link_to("Sign In", login_path, remote: false) %>
-	<% end %>
--->
+<div id="login-pane">
+	<span> 
+		<% if logged_in? %>
+	  		<%= link_to("Make an availability", current_teacher, remote: false ) %>
+		<% else %>
+	  		<%= link_to("Sign In", login_path, remote: false) %>
+		<% end %>
+	</span>
+</div>
