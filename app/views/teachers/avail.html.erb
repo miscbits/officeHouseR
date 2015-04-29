@@ -7,9 +7,5 @@
     <%= f.label :meeting_time %>
     <%= f.datetime_field :meeting_time, placeholder: "Time of your meeting" %>
   </div>  
-  <div class="field">
-    <%= f.label :meeting_location %>
-    <%= f.text_field :meeting_location, placeholder: "Location of your meeting" %>
-  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

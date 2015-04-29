@@ -2,6 +2,7 @@ OfficeHours::Application.routes.draw do
 
   root :to => 'home#index'
   get    'teachers'         => 'teachers#all'
+  get    'search'           => 'home#searchResults'
   get    'profile'          => 'teachers#show'
   get    'signup'           => 'teachers#new'
   get    'login'            => 'sessions#new'

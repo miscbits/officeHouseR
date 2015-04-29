@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150406031248) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,6 +78,6 @@ ActiveRecord::Schema.define(version: 20150406031248) do
     t.string   "office"
   end
 
-  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
+  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
 
 end
