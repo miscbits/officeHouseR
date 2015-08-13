@@ -3,12 +3,12 @@ class AvailabilitiesController < ApplicationController
   before_action :logged_in_teacher, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
-	def new
+  def new
   	@availability = current_teacher.availability.new teacher: @teacher
   end
 
   def create
-    @availability = current_teacher.availabilities.build(availability_params) 
+    @availability = current_teacher.availabilities.build(availability_params)
     if @availability.save
       flash[:success] = "Availability created!"
       redirect_to current_teacher
@@ -24,7 +24,7 @@ class AvailabilitiesController < ApplicationController
     redirect_to current_teacher || root_url
   end
 
-  private 
+  private
     def availability_params
       params.require(:availability).permit(:meeting_time, :meeting_location, :meeting_day)
     end
